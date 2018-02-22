@@ -1,0 +1,17 @@
+.name-of-class {
+    -webkit-box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+    -moz-box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+    transition: transform 0.5s;
+}
+
+.name-of-class:hover {
+    -webkit-box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+    -moz-box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+    -webkit-transform: translateY(-5px);
+    -moz-transform: translateY(-5px);
+    -ms-transform: translateY(-5px);
+    -o-transform: translateY(-5px);
+    transform: translateY(-5px);
+}
