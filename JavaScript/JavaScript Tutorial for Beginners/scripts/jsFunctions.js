@@ -42,7 +42,7 @@
 //
 //alert(a);
 
-
+//this is function
 function multiply(first,second) {
     return first * second;
 } 
