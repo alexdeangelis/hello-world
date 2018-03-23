@@ -18,8 +18,9 @@ for(i = 0; i < items.length; i++) {
 }
 
 function editItem() {
-    //Add the class of edit to the element, which hides the element
+    //Add the class of edit to the element, which hides the span and shows the input
     this.className = 'edit';
+    //Creates a variable of the input within the selected li
     var input = this.querySelector('input');
     input.focus();
     //console.log('my current value is... ', input.value.length);
