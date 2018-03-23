@@ -12,12 +12,13 @@ var inputs = checklist.querySelectorAll("input");
 for(i = 0; i < items.length; i++) {
     //get each item with items array
     items[i].addEventListener('click', editItem);
+    //Adds an event listener when user clicks somewhere else
     inputs[i].addEventListener('blur', updateItem);
     inputs[i].addEventListener('keypress', itemKeypress);
 }
 
 function editItem() {
-    console.log(this);
+    //Add the class of edit to the element, which hides the element
     this.className = 'edit';
     var input = this.querySelector('input');
     input.focus();
