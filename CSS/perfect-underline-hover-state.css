@@ -1,0 +1,8 @@
+.test-class {
+    border-bottom: 4px solid transparent;
+    transition: border-bottom 0.4s;
+}
+
+.test-class:hover {
+    border-bottom: 4px solid #000;
+}
