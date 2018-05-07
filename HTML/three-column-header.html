@@ -1,0 +1,109 @@
+<!--Include bootstrap & font awesome in header-->
+<!--
+
+On mobile, this will work as normal
+On tablet, the menu will be underneath the logo & contact info
+On desktop, the menu will be in between the logo & menu
+
+-->
+
+<head>
+    
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <style>
+
+        header .navbar-default .navbar-header .logo a img {
+            width:160px;
+        }
+
+        @media (min-width:768px) {
+            header .navbar-header {
+                width:100%;
+            }
+            header .logo,
+            header .right-menu-items,
+            header .header-contact-holder,
+            header ul li {
+                display:inline-block;
+            }
+        }
+
+    </style>
+    
+</head>
+
+<body>
+
+    <div class="main-header">
+
+        <div class="container">
+
+            <!-- Static navbar -->
+            <nav class="navbar navbar-default">
+
+
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar top-bar"></span>
+                            <span class="icon-bar middle-bar"></span>
+                            <span class="icon-bar bottom-bar"></span>
+                        </button>
+
+
+                        <div class="logo">
+                            <a href="/">
+
+                                <img src="https://thestartupexpert.net/wp-content/uploads/2016/04/sample-logo.png" alt="#"/>
+
+                            </a>
+                        </div>
+
+                        <div class="right-menu-items pull-right hidden-xs">
+
+                            <div class="header-contact-holder phone-holder icon-holder">
+                                <a class="mobile-phone-href" href="tel:#">
+                                    <p class="telno">#</p>
+                                </a>
+                            </div>
+
+                            <div class="header-contact-holder search-holder icon-holder">
+
+                                <a class="email-icon" href="mailto:#">
+                                    <i class="fa fa-envelope-o icon"></i>
+                                </a>
+
+                                <a class="facebook-icon" href="#">
+                                    <i class="fa fa-facebook-square icon"></i>
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                        <div id="navbar" class="navbar-collapse collapse hidden-sm hidden-md hidden-lg">
+
+                            <div class="menu-main-menu-container">
+                                <!--Add mobile menu here-->
+                            </div>
+
+                        </div><!--/.nav-collapse -->
+
+                        <div id="main-menu-desktop" class="main-menu hidden-xs">
+                            <!--Add desktop/tablet menu here--> 
+                        </div>
+
+                    </div>
+
+
+            </nav>
+
+
+
+        </div> <!-- /container -->
+
+    </div>
+    
+</body>
