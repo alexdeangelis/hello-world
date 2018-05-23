@@ -1,0 +1,64 @@
+$neat-grid: (
+        columns: 12,
+        gutter: 20px,
+        direction: ltr,
+);
+
+$gf-desktop-grid: (
+        columns: 12,
+        gutter: 20px,
+        media: 801px,
+);
+
+$gf-tablet-grid: (
+        columns: 6,
+        gutter: 20px,
+        media: 480px,
+);
+
+$gf-mobile-grid: (
+        columns: 2,
+        gutter: 20px,
+);
+
+
+$gf-gapless-grid: (
+        gutter: 0px,
+);
+
+$gf-gapless-desktop-grid: (
+        columns: 12,
+        gutter: 0px,
+        media: 801px,
+);
+
+$gf-gapless-tablet-grid: (
+        columns: 6,
+        gutter: 0px,
+        media: 480px,
+);
+
+$gf-gapless-mobile-grid: (
+        columns: 2,
+        gutter: 0px,
+);
+
+$gf-five-col-grid: (
+        columns: 5,
+        gutter: 20px,
+        media: 801px,
+);
+
+$gf-gapless-five-col-grid: (
+        columns: 5,
+        gutter: 0px,
+        media: 801px,
+);
+
+$gf-mobile-only-grid: (
+        media: "(max-width: 479px)",
+);
+
+$gf-tablet-only-grid: (
+        media: "(min-width:480px) and (max-width: 800px)",
+);

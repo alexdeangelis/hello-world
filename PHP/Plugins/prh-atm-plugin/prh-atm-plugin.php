@@ -43,7 +43,7 @@ define( 'PRH_ATM_PLUGIN_VERSION', '0.0.1' );
  * The code that runs during plugin activation.
  * This action is documented in includes/class-prh-atm-plugin-activator.php
  */
-function activate_plugin_name() {
+function activate_prh_team_member() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-prh-atm-plugin-activator.php';
 	Plugin_Name_Activator::activate();
 }
@@ -134,13 +134,13 @@ if ( get_option( 'my-option-name' ) == 1 ) {
  * The code that runs during plugin deactivation.
  * This action is documented in includes/class-prh-atm-plugin-deactivator.php
  */
-function deactivate_plugin_name() {
+function deactivate_prh_team_member() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-prh-atm-plugin-deactivator.php';
 	Plugin_Name_Deactivator::deactivate();
 }
 
-register_activation_hook( __FILE__, 'activate_plugin_name' );
-register_deactivation_hook( __FILE__, 'deactivate_plugin_name' );
+register_activation_hook( __FILE__, 'activate_prh_team_member' );
+register_deactivation_hook( __FILE__, 'deactivate_prh_team_member' );
 
 /**
  * The core plugin class that is used to define internationalization,
@@ -157,13 +157,13 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-prh-atm-plugin.php';
  *
  * @since    1.0.0
  */
-function run_plugin_name() {
+function run_prh_team_member() {
 
 	$plugin = new Plugin_Name();
 	$plugin->run();
 
 }
-run_plugin_name();
+run_prh_team_member();
 
 
 require 'plugin_update_check.php';

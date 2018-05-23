@@ -27,9 +27,9 @@ class Plugin_Name_Admin {
 	 *
 	 * @since    1.0.0
 	 * @access   private
-	 * @var      string    $plugin_name    The ID of this plugin.
+	 * @var      string    $prh_team_member    The ID of this plugin.
 	 */
-	private $plugin_name;
+	private $prh_team_member;
 
 	/**
 	 * The version of this plugin.
@@ -44,12 +44,12 @@ class Plugin_Name_Admin {
 	 * Initialize the class and set its properties.
 	 *
 	 * @since    1.0.0
-	 * @param      string    $plugin_name       The name of this plugin.
+	 * @param      string    $prh_team_member       The name of this plugin.
 	 * @param      string    $version    The version of this plugin.
 	 */
-	public function __construct( $plugin_name, $version ) {
+	public function __construct( $prh_team_member, $version ) {
 
-		$this->plugin_name = $plugin_name;
+		$this->prh_team_member = $prh_team_member;
 		$this->version = $version;
 
 	}
@@ -73,7 +73,7 @@ class Plugin_Name_Admin {
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/gf-books-plugin-admin.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->prh_team_member, plugin_dir_url( __FILE__ ) . 'css/gf-books-plugin-admin.css', array(), $this->version, 'all' );
 
 	}
 
@@ -96,7 +96,7 @@ class Plugin_Name_Admin {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/gf-books-plugin-admin.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->prh_team_member, plugin_dir_url( __FILE__ ) . 'js/gf-books-plugin-admin.js', array( 'jquery' ), $this->version, false );
 
 	}
 
