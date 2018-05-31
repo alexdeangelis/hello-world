@@ -9,14 +9,14 @@
  * that starts the plugin.
  *
  * @link              http://goodmanfox.com
- * @since             1.0.1
+ * @since             1.0.0
  * @package           prh_atm_plugin
  *
  * @wordpress-plugin
  * Plugin Name:       PRH Adobe Tag Manager Plugin
  * Plugin URI:        http://goodmanfox.com/
  * Description:       This is a plugin to add the Adobe Tag Manager code to a PRH website.
- * Version:           1.0.1
+ * Version:           1.5.0
  * Author:            Goodman Fox
  * Author URI:        http://goodmanfox.com/
  * License:           GPL-2.0+
@@ -43,9 +43,9 @@ define( 'PRH_ATM_PLUGIN_VERSION', '0.0.1' );
  * The code that runs during plugin activation.
  * This action is documented in includes/class-prh-atm-plugin-activator.php
  */
-function activate_prh_team_member() {
+function activate_prh_atm_plugin() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-prh-atm-plugin-activator.php';
-	Plugin_Name_Activator::activate();
+	PRH_ATM_Plugin_Activator::activate();
 }
 
 
@@ -61,7 +61,7 @@ function my_settings_init(){
     /* Register Settings */
     register_setting(
         'general',             // Options group
-        'my-option-name',      // Option name/database
+        'atm-option',      // Option name/database
         'my_settings_sanitize' // sanitize callback function
     );
  
@@ -75,7 +75,7 @@ function my_settings_init(){
  
     /* Create settings field */
     add_settings_field(
-        'my-settings-field-id',       // Field ID
+        'atm-field-id',       // Field ID
         'Adobe Tag Manager',       // Field title 
         'my_settings_field_callback', // Field callback function
         'general'//,                    // Settings page slug
@@ -95,9 +95,14 @@ function my_settings_section_description(){
  
 /* Settings Field Callback */
 function my_settings_field_callback(){
+    
+    $checked = get_option( 'atm-option' );
+    //If atm-option is set as false, change it to 0. This way the checkbox is defaulted on not ticked.
+    if ($checked == false) $checked = '0';
+    
     ?>
     <label for="droid-identification">
-        <input id="droid-identification" type="checkbox" value="1" name="my-option-name" <?php checked( get_option( 'my-option-name', true ) ); ?>> Select to turn on the production code for Adobe Tag Manager
+        <input id="droid-identification" type="checkbox" value="1" name="atm-option" <?php checked( $checked ); ?>> Select to turn on the production code for Adobe Tag Manager
     </label>
     <?php
     
@@ -106,7 +111,7 @@ function my_settings_field_callback(){
 
 
 
-if ( get_option( 'my-option-name' ) == 1 ) {
+if ( get_option( 'atm-option' ) == 1 ) {
     
     add_action( 'wp_head', 'atm_script_header_production' );
     function atm_script_header_production() {
@@ -134,13 +139,13 @@ if ( get_option( 'my-option-name' ) == 1 ) {
  * The code that runs during plugin deactivation.
  * This action is documented in includes/class-prh-atm-plugin-deactivator.php
  */
-function deactivate_prh_team_member() {
+function deactivate_prh_atm_plugin() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-prh-atm-plugin-deactivator.php';
-	Plugin_Name_Deactivator::deactivate();
+	PRH_ATM_Plugin_Deactivator::deactivate();
 }
 
-register_activation_hook( __FILE__, 'activate_prh_team_member' );
-register_deactivation_hook( __FILE__, 'deactivate_prh_team_member' );
+register_activation_hook( __FILE__, 'activate_prh_atm_plugin' );
+register_deactivation_hook( __FILE__, 'deactivate_prh_atm_plugin' );
 
 /**
  * The core plugin class that is used to define internationalization,
@@ -157,13 +162,13 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-prh-atm-plugin.php';
  *
  * @since    1.0.0
  */
-function run_prh_team_member() {
+function run_prh_atm_plugin() {
 
-	$plugin = new Plugin_Name();
+	$plugin = new PRH_ATM_Plugin();
 	$plugin->run();
 
 }
-run_prh_team_member();
+run_prh_atm_plugin();
 
 
 require 'plugin_update_check.php';

@@ -20,16 +20,16 @@
  * @subpackage Plugin_Name/public
  * @author     Your Name <email@example.com>
  */
-class Plugin_Name_Public {
+class PRH_ATM_Plugin_Public {
 
 	/**
 	 * The ID of this plugin.
 	 *
 	 * @since    1.0.0
 	 * @access   private
-	 * @var      string    $prh_team_member    The ID of this plugin.
+	 * @var      string    $plugin_name    The ID of this plugin.
 	 */
-	private $prh_team_member;
+	private $plugin_name;
 
 	/**
 	 * The version of this plugin.
@@ -44,12 +44,12 @@ class Plugin_Name_Public {
 	 * Initialize the class and set its properties.
 	 *
 	 * @since    1.0.0
-	 * @param      string    $prh_team_member       The name of the plugin.
+	 * @param      string    $plugin_name       The name of the plugin.
 	 * @param      string    $version    The version of this plugin.
 	 */
-	public function __construct( $prh_team_member, $version ) {
+	public function __construct( $plugin_name, $version ) {
 
-		$this->prh_team_member = $prh_team_member;
+		$this->plugin_name = $plugin_name;
 		$this->version = $version;
 
 	}
@@ -73,7 +73,7 @@ class Plugin_Name_Public {
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->prh_team_member, plugin_dir_url( __FILE__ ) . 'css/prh-atm-plugin-public.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/prh-atm-plugin-public.css', array(), $this->version, 'all' );
 
 	}
 
@@ -96,7 +96,7 @@ class Plugin_Name_Public {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->prh_team_member, plugin_dir_url( __FILE__ ) . 'js/prh-atm-plugin-public.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/prh-atm-plugin-public.js', array( 'jquery' ), $this->version, false );
 
 	}
 
