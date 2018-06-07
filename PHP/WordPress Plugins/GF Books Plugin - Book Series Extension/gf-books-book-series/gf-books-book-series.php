@@ -12,7 +12,7 @@
  * Plugin Name:       GF Books Plugin: Book Series Extension
  * Plugin URI:        http://goodmanfox.com
  * Description:       This plugin sets up a Book Series custom post type & creates a Book Series relationship field within the single book post. Needs the GF Books Plugin to work correctly.
- * Version:           1.0.2
+ * Version:           1.0.4
  * Author:            Goodman Fox
  * Author URI:        http://goodmanfox.com
  * License:           GPL-2.0+
@@ -47,9 +47,9 @@ function activate_gf_books_book_series() {
 
 //This is what the plugin does...
 
-//If Advanced Custom Fields & the GF Books Plugin are active
-
-if( class_exists('acf') && is_plugin_active( 'gf-books-plugin/gf-books-plugin.php' ) ) {
+//If the GF Books Plugin is active
+include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+if( is_plugin_active( 'gf-books-plugin/gf-books-plugin.php' ) ) {
 
 
 
@@ -164,12 +164,12 @@ if( class_exists('acf') && is_plugin_active( 'gf-books-plugin/gf-books-plugin.ph
 
 
 }
-//If advanced custom fields does not exist, do this...
+//If the GF Books Plugin is not active, do this...
 else {
 
     function acf_gf_books_book_series_admin_notice__error() {
         $class = 'notice notice-error';
-        $message = __( 'Please make sure that both Advanced Custom Fields & the GF Books Plugin are installed to get the most out of the Book Series Extension.', 'sample-text-domain' );
+        $message = __( 'The Books Series Extension will not work without the GF Books Plugin.', 'sample-text-domain' );
 
         printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), esc_html( $message ) ); 
     }

@@ -19,6 +19,7 @@ Advanced Buy Links
 
 -- Region - gfbp_abl_region - Repeater
 ---- Region Name - gfbp_abl_region_name - Text
+---- Region Image - gfbp_abl_region_image - Image
 ---- Region Book Cover - gfbp_abl_region_book_cover - Image
 ---- Region Book Type - gfbp_abl_region_book_type - Repeater
 ------ Type Name - gfbp_abl_type_name - Text

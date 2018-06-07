@@ -12,7 +12,7 @@
  * Plugin Name:       GF Books Plugin: Advanced Buy Links Extension
  * Plugin URI:        http://goodmanfox.com
  * Description:       This plugin replaces the basic Buy Links fields in the GF Books Plugin with a more advanced Buy Links section with more fields & options. Needs the GF Books Plugin to work correctly.
- * Version:           1.0.1
+ * Version:           1.0.4
  * Author:            Goodman Fox
  * Author URI:        http://goodmanfox.com
  * License:           GPL-2.0+
@@ -42,236 +42,262 @@ function activate_gf_books_advanced_buy_links() {
 	gf_books_advanced_buy_links_Activator::activate();
 }
 
+include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+if( is_plugin_active( 'gf-books-plugin/gf-books-plugin.php' ) ) {
 
-//If ACF is active, set up these fields in the book custom post type
-if( class_exists('acf') ) {
+    //If ACF is active, set up these fields in the book custom post type
+    if( class_exists('acf') ) {
 
 
-    if( function_exists('acf_add_local_field_group') ):
+        if( function_exists('acf_add_local_field_group') ):
 
-    acf_add_local_field_group(array(
-        'key' => 'group_5b0ec3fd46462',
-        'title' => 'Advanced Buy Links',
-        'fields' => array(
-            array(
-                'key' => 'field_5b0ec4093fa0e',
-                'label' => 'Region',
-                'name' => 'gfbp_abl_region',
-                'type' => 'repeater',
-                'instructions' => '',
-                'required' => 0,
-                'conditional_logic' => 0,
-                'wrapper' => array(
-                    'width' => '',
-                    'class' => '',
-                    'id' => '',
-                ),
-                'collapsed' => '',
-                'min' => 0,
-                'max' => 0,
-                'layout' => 'block',
-                'button_label' => '',
-                'sub_fields' => array(
-                    array(
-                        'key' => 'field_5b0fc522bc13e',
-                        'label' => 'Region Name',
-                        'name' => 'gfbp_abl_region_name',
-                        'type' => 'text',
-                        'instructions' => '',
-                        'required' => 0,
-                        'conditional_logic' => 0,
-                        'wrapper' => array(
-                            'width' => '',
-                            'class' => '',
-                            'id' => '',
-                        ),
-                        'default_value' => '',
-                        'placeholder' => '',
-                        'prepend' => '',
-                        'append' => '',
-                        'maxlength' => '',
-                    ),
-                    array(
-                        'key' => 'field_5b0ec6b93fa0f',
-                        'label' => 'Region Book Cover',
-                        'name' => 'gfbp_abl_region_book_cover',
-                        'type' => 'image',
-                        'instructions' => '',
-                        'required' => 0,
-                        'conditional_logic' => 0,
-                        'wrapper' => array(
-                            'width' => '',
-                            'class' => '',
-                            'id' => '',
-                        ),
-                        'return_format' => 'array',
-                        'preview_size' => 'medium',
-                        'library' => 'all',
-                        'min_width' => '',
-                        'min_height' => '',
-                        'min_size' => '',
-                        'max_width' => '',
-                        'max_height' => '',
-                        'max_size' => '',
-                        'mime_types' => '',
-                    ),
-                    array(
-                        'key' => 'field_5b0ec8393fa10',
-                        'label' => 'Region Book Type',
-                        'name' => 'gfbp_abl_region_book_type',
-                        'type' => 'repeater',
-                        'instructions' => '',
-                        'required' => 0,
-                        'conditional_logic' => 0,
-                        'wrapper' => array(
-                            'width' => '',
-                            'class' => '',
-                            'id' => '',
-                        ),
-                        'collapsed' => '',
-                        'min' => 0,
-                        'max' => 0,
-                        'layout' => 'block',
-                        'button_label' => '',
-                        'sub_fields' => array(
-                            array(
-                                'key' => 'field_5b0ec8533fa11',
-                                'label' => 'Type Name',
-                                'name' => 'gfbp_abl_type_name',
-                                'type' => 'text',
-                                'instructions' => '',
-                                'required' => 0,
-                                'conditional_logic' => 0,
-                                'wrapper' => array(
-                                    'width' => '',
-                                    'class' => '',
-                                    'id' => '',
-                                ),
-                                'default_value' => '',
-                                'placeholder' => '',
-                                'prepend' => '',
-                                'append' => '',
-                                'maxlength' => '',
-                            ),
-                            array(
-                                'key' => 'field_5b0fc582bc13f',
-                                'label' => 'Type Links',
-                                'name' => 'gfbp_abl_type_links',
-                                'type' => 'repeater',
-                                'instructions' => '',
-                                'required' => 0,
-                                'conditional_logic' => 0,
-                                'wrapper' => array(
-                                    'width' => '',
-                                    'class' => '',
-                                    'id' => '',
-                                ),
-                                'collapsed' => '',
-                                'min' => 0,
-                                'max' => 0,
-                                'layout' => 'table',
-                                'button_label' => '',
-                                'sub_fields' => array(
-                                    array(
-                                        'key' => 'field_5b0fc5c0bc140',
-                                        'label' => 'Retailer',
-                                        'name' => 'gfbp_abl_retailer',
-                                        'type' => 'text',
-                                        'instructions' => '',
-                                        'required' => 0,
-                                        'conditional_logic' => 0,
-                                        'wrapper' => array(
-                                            'width' => '',
-                                            'class' => '',
-                                            'id' => '',
-                                        ),
-                                        'default_value' => '',
-                                        'placeholder' => '',
-                                        'prepend' => '',
-                                        'append' => '',
-                                        'maxlength' => '',
-                                    ),
-                                    array(
-                                        'key' => 'field_5b0fc5cabc141',
-                                        'label' => 'URL',
-                                        'name' => 'gfbp_abl_url',
-                                        'type' => 'url',
-                                        'instructions' => '',
-                                        'required' => 0,
-                                        'conditional_logic' => 0,
-                                        'wrapper' => array(
-                                            'width' => '',
-                                            'class' => '',
-                                            'id' => '',
-                                        ),
-                                        'default_value' => '',
-                                        'placeholder' => '',
-                                    ),
-                                    array(
-                                        'key' => 'field_5b0fc5f3bc142',
-                                        'label' => 'Retailer Logo',
-                                        'name' => 'gfbp_abl_retailer_logo',
-                                        'type' => 'image',
-                                        'instructions' => '',
-                                        'required' => 0,
-                                        'conditional_logic' => 0,
-                                        'wrapper' => array(
-                                            'width' => '',
-                                            'class' => '',
-                                            'id' => '',
-                                        ),
-                                        'return_format' => 'array',
-                                        'preview_size' => 'medium',
-                                        'library' => 'all',
-                                        'min_width' => '',
-                                        'min_height' => '',
-                                        'min_size' => '',
-                                        'max_width' => '',
-                                        'max_height' => '',
-                                        'max_size' => '',
-                                        'mime_types' => '',
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-            ),
-        ),
-        'location' => array(
-            array(
+        acf_add_local_field_group(array(
+            'key' => 'group_5b0ec3fd46462',
+            'title' => 'Advanced Buy Links',
+            'fields' => array(
                 array(
-                    'param' => 'post_type',
-                    'operator' => '==',
-                    'value' => 'book',
+                    'key' => 'field_5b0ec4093fa0e',
+                    'label' => 'Region',
+                    'name' => 'gfbp_abl_region',
+                    'type' => 'repeater',
+                    'instructions' => '',
+                    'required' => 0,
+                    'conditional_logic' => 0,
+                    'wrapper' => array(
+                        'width' => '',
+                        'class' => '',
+                        'id' => '',
+                    ),
+                    'collapsed' => '',
+                    'min' => 0,
+                    'max' => 0,
+                    'layout' => 'block',
+                    'button_label' => '',
+                    'sub_fields' => array(
+                        array(
+                            'key' => 'field_5b0fc522bc13e',
+                            'label' => 'Region Name',
+                            'name' => 'gfbp_abl_region_name',
+                            'type' => 'text',
+                            'instructions' => '',
+                            'required' => 0,
+                            'conditional_logic' => 0,
+                            'wrapper' => array(
+                                'width' => '',
+                                'class' => '',
+                                'id' => '',
+                            ),
+                            'default_value' => '',
+                            'placeholder' => '',
+                            'prepend' => '',
+                            'append' => '',
+                            'maxlength' => '',
+                        ),
+                        array(
+                            'key' => 'field_5b0ec6b93fa0g',
+                            'label' => 'Region Image',
+                            'name' => 'gfbp_abl_region_image',
+                            'type' => 'image',
+                            'instructions' => '',
+                            'required' => 0,
+                            'conditional_logic' => 0,
+                            'wrapper' => array(
+                                'width' => '',
+                                'class' => '',
+                                'id' => '',
+                            ),
+                            'return_format' => 'array',
+                            'preview_size' => 'medium',
+                            'library' => 'all',
+                            'min_width' => '',
+                            'min_height' => '',
+                            'min_size' => '',
+                            'max_width' => '',
+                            'max_height' => '',
+                            'max_size' => '',
+                            'mime_types' => '',
+                        ),
+                        array(
+                            'key' => 'field_5b0ec6b93fa0f',
+                            'label' => 'Region Book Cover',
+                            'name' => 'gfbp_abl_region_book_cover',
+                            'type' => 'image',
+                            'instructions' => '',
+                            'required' => 0,
+                            'conditional_logic' => 0,
+                            'wrapper' => array(
+                                'width' => '',
+                                'class' => '',
+                                'id' => '',
+                            ),
+                            'return_format' => 'array',
+                            'preview_size' => 'medium',
+                            'library' => 'all',
+                            'min_width' => '',
+                            'min_height' => '',
+                            'min_size' => '',
+                            'max_width' => '',
+                            'max_height' => '',
+                            'max_size' => '',
+                            'mime_types' => '',
+                        ),
+                        array(
+                            'key' => 'field_5b0ec8393fa10',
+                            'label' => 'Region Book Type',
+                            'name' => 'gfbp_abl_region_book_type',
+                            'type' => 'repeater',
+                            'instructions' => '',
+                            'required' => 0,
+                            'conditional_logic' => 0,
+                            'wrapper' => array(
+                                'width' => '',
+                                'class' => '',
+                                'id' => '',
+                            ),
+                            'collapsed' => '',
+                            'min' => 0,
+                            'max' => 0,
+                            'layout' => 'block',
+                            'button_label' => '',
+                            'sub_fields' => array(
+                                array(
+                                    'key' => 'field_5b0ec8533fa11',
+                                    'label' => 'Type Name',
+                                    'name' => 'gfbp_abl_type_name',
+                                    'type' => 'text',
+                                    'instructions' => '',
+                                    'required' => 0,
+                                    'conditional_logic' => 0,
+                                    'wrapper' => array(
+                                        'width' => '',
+                                        'class' => '',
+                                        'id' => '',
+                                    ),
+                                    'default_value' => '',
+                                    'placeholder' => '',
+                                    'prepend' => '',
+                                    'append' => '',
+                                    'maxlength' => '',
+                                ),
+                                array(
+                                    'key' => 'field_5b0fc582bc13f',
+                                    'label' => 'Type Links',
+                                    'name' => 'gfbp_abl_type_links',
+                                    'type' => 'repeater',
+                                    'instructions' => '',
+                                    'required' => 0,
+                                    'conditional_logic' => 0,
+                                    'wrapper' => array(
+                                        'width' => '',
+                                        'class' => '',
+                                        'id' => '',
+                                    ),
+                                    'collapsed' => '',
+                                    'min' => 0,
+                                    'max' => 0,
+                                    'layout' => 'table',
+                                    'button_label' => '',
+                                    'sub_fields' => array(
+                                        array(
+                                            'key' => 'field_5b0fc5c0bc140',
+                                            'label' => 'Retailer',
+                                            'name' => 'gfbp_abl_retailer',
+                                            'type' => 'text',
+                                            'instructions' => '',
+                                            'required' => 0,
+                                            'conditional_logic' => 0,
+                                            'wrapper' => array(
+                                                'width' => '',
+                                                'class' => '',
+                                                'id' => '',
+                                            ),
+                                            'default_value' => '',
+                                            'placeholder' => '',
+                                            'prepend' => '',
+                                            'append' => '',
+                                            'maxlength' => '',
+                                        ),
+                                        array(
+                                            'key' => 'field_5b0fc5cabc141',
+                                            'label' => 'URL',
+                                            'name' => 'gfbp_abl_url',
+                                            'type' => 'url',
+                                            'instructions' => '',
+                                            'required' => 0,
+                                            'conditional_logic' => 0,
+                                            'wrapper' => array(
+                                                'width' => '',
+                                                'class' => '',
+                                                'id' => '',
+                                            ),
+                                            'default_value' => '',
+                                            'placeholder' => '',
+                                        ),
+                                        array(
+                                            'key' => 'field_5b0fc5f3bc142',
+                                            'label' => 'Retailer Logo',
+                                            'name' => 'gfbp_abl_retailer_logo',
+                                            'type' => 'image',
+                                            'instructions' => '',
+                                            'required' => 0,
+                                            'conditional_logic' => 0,
+                                            'wrapper' => array(
+                                                'width' => '',
+                                                'class' => '',
+                                                'id' => '',
+                                            ),
+                                            'return_format' => 'array',
+                                            'preview_size' => 'medium',
+                                            'library' => 'all',
+                                            'min_width' => '',
+                                            'min_height' => '',
+                                            'min_size' => '',
+                                            'max_width' => '',
+                                            'max_height' => '',
+                                            'max_size' => '',
+                                            'mime_types' => '',
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
                 ),
             ),
-        ),
-        'menu_order' => 0,
-        'position' => 'normal',
-        'style' => 'default',
-        'label_placement' => 'top',
-        'instruction_placement' => 'label',
-        'hide_on_screen' => '',
-        'active' => 1,
-        'description' => '',
-    ));
+            'location' => array(
+                array(
+                    array(
+                        'param' => 'post_type',
+                        'operator' => '==',
+                        'value' => 'book',
+                    ),
+                ),
+            ),
+            'menu_order' => 0,
+            'position' => 'normal',
+            'style' => 'default',
+            'label_placement' => 'top',
+            'instruction_placement' => 'label',
+            'hide_on_screen' => '',
+            'active' => 1,
+            'description' => '',
+        ));
 
-    endif;
-    
-    
+        endif;
 
-    
-    
-    
+
+
+
+
+    }
 
 }
-//If advanced custom fields does not exist, do this...
+//If the GF Books Plugin is not active, do this...
 else {
 
     function acf_abl_admin_notice__error() {
         $class = 'notice notice-error';
-        $message = __( 'To get the most out of the Advanced Buy Links Extension Plugin, please install both Advanced Custom Fields & the GF Books Plugin.', 'sample-text-domain' );
+        $message = __( 'The Advanced Buy Links Extension will not work without the GF Books Plugin.', 'sample-text-domain' );
 
         printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), esc_html( $message ) ); 
     }

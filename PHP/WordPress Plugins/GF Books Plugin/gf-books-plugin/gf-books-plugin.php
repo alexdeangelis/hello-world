@@ -8,15 +8,12 @@
  * registers the activation and deactivation functions, and defines a function
  * that starts the plugin.
  *
- * @link              http://goodmanfox.com
- * @since             1.1.0
- * @package           gf-books-plugin
  *
  * @wordpress-plugin
  * Plugin Name:       GF Books Plugin
  * Plugin URI:        http://goodmanfox.com
  * Description:       This plugin sets up a Books custom post type and uses the Advanced Custom Fields plugin to create fields for the new Books custom post type.
- * Version:           1.1.0
+ * Version:           1.2.3
  * Author:            Goodman Fox
  * Author URI:        http://goodmanfox.com
  * License:           GPL-2.0+
@@ -35,22 +32,20 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'PLUGIN_NAME_VERSION', '1.0.0' );
+define( 'GF_BOOKS_PLUGIN_VERSION', '1.0.0' );
 
 /**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-gf-books-plugin-activator.php
  */
-function activate_plugin_name() {
+function activate_gf_books_plugin() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-gf-books-plugin-activator.php';
-	Plugin_Name_Activator::activate();
+	GF_Books_Plugin_Activator::activate();
 }
 
 
 
 //This is what the plugin does...
-
-
     
     
     //Register the book custom post type
@@ -92,9 +87,8 @@ function activate_plugin_name() {
 
     }
     add_action( 'init', 'register_book_post_type' );
-    
 
-    
+
     
     //If ACF is active, set up these fields in the book custom post type
     if( class_exists('acf') ) {
@@ -102,18 +96,18 @@ function activate_plugin_name() {
     
         if( function_exists('acf_add_local_field_group') ):
         
+            include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
         
+            //If Advanced Buy Links extension is installed, do this...
             if ( is_plugin_active( 'gf-books-advanced-buy-links/gf-books-advanced-buy-links.php' ) ) {
-                  //plugin is activated
 
                 require_once plugin_dir_path( __FILE__ ) . 'includes/acf-fields-original-buy-links-removed.php';
 
-
-            } else {
-
+            } 
+            //Otherwise, do this...
+            else {
 
                 require_once plugin_dir_path( __FILE__ ) . 'includes/acf-fields-original-buy-links-included.php';
-
 
             }
 
@@ -122,7 +116,7 @@ function activate_plugin_name() {
     } 
     //If advanced custom fields does not exist, do this...
     else {
-
+        //Show this message...
         function acf_admin_notice__error() {
             $class = 'notice notice-error';
             $message = __( 'To get the most out of the GF Books Plugin, please install Advanced Custom Fields.', 'sample-text-domain' );
@@ -136,6 +130,9 @@ function activate_plugin_name() {
 
 
 
+//Create the Field Reference sub menu & text within
+require_once plugin_dir_path( __FILE__ ) . 'includes/gf-books-field-reference.php';
+
 
 
 
@@ -144,13 +141,13 @@ function activate_plugin_name() {
  * The code that runs during plugin deactivation.
  * This action is documented in includes/class-gf-books-plugin-deactivator.php
  */
-function deactivate_plugin_name() {
+function deactivate_gf_books_plugin() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-gf-books-plugin-deactivator.php';
-	Plugin_Name_Deactivator::deactivate();
+	GF_Books_Plugin_Deactivator::deactivate();
 }
 
-register_activation_hook( __FILE__, 'activate_plugin_name' );
-register_deactivation_hook( __FILE__, 'deactivate_plugin_name' );
+register_activation_hook( __FILE__, 'activate_gf_books_plugin' );
+register_deactivation_hook( __FILE__, 'deactivate_gf_books_plugin' );
 
 /**
  * The core plugin class that is used to define internationalization,
@@ -169,13 +166,13 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-gf-books-plugin.php';
  *
  * @since    1.0.0
  */
-function run_plugin_name() {
+function run_gf_books_plugin() {
 
-	$plugin = new Plugin_Name();
+	$plugin = new GF_Books_Plugin();
 	$plugin->run();
 
 }
-run_plugin_name();
+run_gf_books_plugin();
 
 
 require 'plugin_update_check.php';
