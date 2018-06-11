@@ -60,17 +60,17 @@ function picLink() {
     //console.log(picID); 
     var pic = document.getElementById(picID);
     //this gets the element that has an id that matches the value of the data-img property
-    //console.log(pic);
+    console.log(pic);
     
-    if(pic.className == 'hide') {
+    /*if(pic.className == 'hide') {
         hideAll();
         pic.className = '';
     } else {
         hideAll();
-    }
+    }*/
     
 }
-
+/*
 function hideAll() {
     //var allImages = document.querySelectorAll('img');
     var allImages = document.getElementsByTagName('img');
@@ -80,7 +80,7 @@ function hideAll() {
     for(var i = 0; i < allImages.length; i++) {
         allImages[i].className = 'hide';
     }
-}
+}*/
 
 
 
