@@ -56,6 +56,9 @@ class Comment_Form_Admin extends Comment_Form_Main {
         add_settings_field('commentform_settings_notes_before', __('texts before the form', 'commentform'), array($this, 'render_comment_notes_before_callback'), 'comment-form-customizer', 'comment_form_texts_section');
         add_settings_field('commentform_settings_notes_after', __('texts after the form', 'commentform'), array($this, 'render_comment_notes_after_callback'), 'comment-form-customizer', 'comment_form_texts_section');
         add_settings_field('commentform_settings_two_columns', __('two column layout', 'commentform'), array($this, 'render_two_columns_callback'), 'comment-form-customizer', 'comment_form_layout_section');
+        
+        
+        add_settings_field('commentform_settings_name_setting', __('Name Field Setting', 'commentform'), array($this, 'render_name_setting_callback'), 'comment-form-customizer', 'comment_form_fields_section');
 
         // register setting for $_POST handling
         register_setting('comment_form_url_section', 'commentform_settings');
@@ -164,7 +167,18 @@ class Comment_Form_Admin extends Comment_Form_Main {
     public function render_two_columns_callback() {
         echo '<input name="commentform_settings[two_columns]" id="commentform_settings_two_columns" type="checkbox" value="1" class="code" ' . checked(1, $this->options('two_columns'), false) . ' />';
         echo '<label for="commentform_settings_two_columns">'. __('two column layout', 'commentform') .'</label>';
-        echo '<p class="description">'.__('Use a simple two column layout for your comment form.', 'commentform').'</p>';
+        
+    }
+    
+    /**
+     * render comment form with Name Field Settings
+     *
+     * @since 1.2.0
+     */
+    public function render_name_setting_callback() {
+        echo '<input name="commentform_settings[name_first_character]" id="commentform_settings_name_setting" type="checkbox" value="1" class="code" ' . checked(1, $this->options('name_first_character'), false) . ' />';
+        echo '<label for="commentform_settings_name_setting">'. __('Store first character of commenters name', 'commentform') .'</label>';
+        echo '<p class="description">'.__('Choose how to store the name. If no option is selected, the name will appear as anonymous', 'commentform').'</p>';
     }
 
 }
