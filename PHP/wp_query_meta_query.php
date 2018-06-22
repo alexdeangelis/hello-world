@@ -10,7 +10,7 @@ $args = array(
     'meta_query' => array(
         'relation' => 'AND', //The logical relationship between each inner taxonomy array when there is more than one
         array(
-            'key' => 'show_type', //Define the first field to filter by. This is a field within the custom post type above
+            'key' => 'show_type', //Define the first field to filter by. This is a field within the post type above
             'value' => 'Streaming', //Value of the key defined above
             'compare' => '='
         ),

@@ -13,7 +13,7 @@
  * Plugin Name:       GF Books Plugin
  * Plugin URI:        http://goodmanfox.com
  * Description:       This plugin sets up a Books custom post type and uses the Advanced Custom Fields plugin to create fields for the new Books custom post type.
- * Version:           1.2.3
+ * Version:           1.2.4
  * Author:            Goodman Fox
  * Author URI:        http://goodmanfox.com
  * License:           GPL-2.0+
@@ -80,7 +80,7 @@ function activate_gf_books_plugin() {
             'hierarchical'       => false,
             'menu_position'      => null,
             'menu_icon'          => 'dashicons-book-alt',
-            'supports'           => array( 'title', 'editor', 'thumbnail' )
+            'supports'           => array( 'title', 'editor', 'thumbnail', 'excerpt' )
         );
 
         register_post_type( 'book', $args );

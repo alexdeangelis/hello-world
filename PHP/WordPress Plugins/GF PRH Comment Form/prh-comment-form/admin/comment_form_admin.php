@@ -59,6 +59,7 @@ class Comment_Form_Admin extends Comment_Form_Main {
         
         
         add_settings_field('commentform_settings_name_setting', __('Name Field Setting', 'commentform'), array($this, 'render_name_setting_callback'), 'comment-form-customizer', 'comment_form_fields_section');
+        
 
         // register setting for $_POST handling
         register_setting('comment_form_url_section', 'commentform_settings');
@@ -178,7 +179,12 @@ class Comment_Form_Admin extends Comment_Form_Main {
     public function render_name_setting_callback() {
         echo '<input name="commentform_settings[name_first_character]" id="commentform_settings_name_setting" type="checkbox" value="1" class="code" ' . checked(1, $this->options('name_first_character'), false) . ' />';
         echo '<label for="commentform_settings_name_setting">'. __('Store first character of commenters name', 'commentform') .'</label>';
-        echo '<p class="description">'.__('Choose how to store the name. If no option is selected, the name will appear as anonymous', 'commentform').'</p>';
+        
+        echo '<p class="description">'.__('', 'commentform').'</p>';
+        echo '<input name="commentform_settings[name_full]" id="commentform_settings_name_full" type="checkbox" value="1" class="code" ' . checked(1, $this->options('name_full'), false) . ' />';
+        echo '<label for="commentform_settings_name_full">'. __('Store commenters full name', 'commentform') .'</label>';
+        echo '<p class="description">'.__('Choose how to store the name.<br/>If no option is selected, the name will appear as anonymous.<br/>If both options are selected, the full name will be displayed.', 'commentform').'</p>';
+        
     }
 
 }

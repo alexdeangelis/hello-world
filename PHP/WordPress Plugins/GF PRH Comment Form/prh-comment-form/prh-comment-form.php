@@ -3,7 +3,7 @@
 /**
  * Plugin Name: GF PRH Advanced Comment Form
  * Description: Easily customize and optimize the standard comment form & also removes the IP address from the commenter. Builds on the Advanced Comment Form created by Thomas Maier - http://webgilde.com/. That plugin can be found here: https://wordpress.org/plugins/comment-form/
- * Version: 1.1.0
+ * Version: 1.2.0
  * Plugin URI: https://goodmanfox.com/
  * Author: Goodman Fox
  * Author URI: https://www.goodmanfox.com/
@@ -66,11 +66,21 @@ function wpb_remove_commentsauthor( $comment_author_author ) {
     
     $comment_form_settings = get_option('commentform_settings');
     
-    //If the Name Field Setting 'Store first character' is selected, do this... 
-    if ($comment_form_settings['name_first_character']) {
+    //If Name Field Setting 'Store full name' is selected, or both 'Store full name' & 'Store first character' are selected, do this...
+    
+    if ($comment_form_settings['name_full'] || $comment_form_settings['name_full'] && $comment_form_settings['name_first_character']) {
+        //Gets the full name
+        return $comment_author_author;
+    } 
+    
+    //Else if the Name Field Setting 'Store first character' is selected, do this... 
+    
+    elseif ($comment_form_settings['name_first_character']) {
         //Gets the first character summitted in the name field
         return mb_substr($comment_author_author, 0, 1, 'utf-8');
-    } else {
+    } 
+    
+    else {
         //Otherwise return empty, which will default to anonymous
         return '';
     }
