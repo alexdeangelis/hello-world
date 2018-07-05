@@ -1,0 +1,33 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+
+.gf-books-field-reference ul {
+    list-style: disc;
+    padding-left:40px;
+}
+.gf-books-field-reference ul ul {
+    list-style-type: circle;
+}
+
+.gf-books-field-reference ul ul ul {
+    list-style: disc;
+}
+
+.gf-books-field-reference ul ul ul ul {
+    list-style-type: circle;
+}
+
+.gf-books-field-reference li {
+    margin-bottom:0px;
+    margin-top:6px;
+}
+
+.gf-books-field-reference h2 {
+    padding-top:25px;
+}
+
+.gf-books-field-reference h2:first-of-type {
+    padding-top:0px;
+}

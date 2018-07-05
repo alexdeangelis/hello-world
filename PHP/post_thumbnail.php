@@ -18,4 +18,13 @@ else {
     
 }
 
+
+///OR use
+
+the_post_thumbnail();
+
+//to get the img object
+
+
 ?>
+

@@ -12,7 +12,7 @@
  * Plugin Name:       GF Books Plugin: Book Series Extension
  * Plugin URI:        http://goodmanfox.com
  * Description:       This plugin sets up a Book Series custom post type & creates a Book Series relationship field within the single book post. Needs the GF Books Plugin to work correctly.
- * Version:           1.0.4
+ * Version:           1.0.5
  * Author:            Goodman Fox
  * Author URI:        http://goodmanfox.com
  * License:           GPL-2.0+
@@ -49,7 +49,7 @@ function activate_gf_books_book_series() {
 
 //If the GF Books Plugin is active
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-if( is_plugin_active( 'gf-books-plugin/gf-books-plugin.php' ) ) {
+if( is_plugin_active( 'gf-books-plugin/gf-books-plugin.php' ) || is_plugin_active( 'gf-books-sk-plugin/gf-books-sk-plugin.php' )) {
 
 
 
