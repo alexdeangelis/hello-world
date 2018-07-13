@@ -1,0 +1,87 @@
+<?php
+
+acf_add_local_field_group(array(
+    'key' => 'group_5ae04962b7862',
+    'title' => 'Published by Fields',
+    'fields' => array(
+
+        array(
+            'key' => 'field_5ae0496b71c1f',
+            'label' => 'Published By',
+            'name' => 'phrbp_published_by',
+            'type' => 'repeater',
+            'instructions' => '',
+            'required' => 0,
+            'conditional_logic' => 0,
+            'wrapper' => array(
+                'width' => '',
+                'class' => '',
+                'id' => '',
+            ),
+            'collapsed' => '',
+            'min' => 0,
+            'max' => 0,
+            'layout' => 'table',
+            'button_label' => '',
+            'sub_fields' => array(
+                array(
+                    'key' => 'field_5ae0499a71c20',
+                    'label' => 'Published By: Name',
+                    'name' => 'gfbp_published_by_name',
+                    'type' => 'text',
+                    'instructions' => '',
+                    'required' => 0,
+                    'conditional_logic' => 0,
+                    'wrapper' => array(
+                        'width' => '',
+                        'class' => '',
+                        'id' => '',
+                    ),
+                    'default_value' => '',
+                    'placeholder' => '',
+                    'prepend' => '',
+                    'append' => '',
+                    'maxlength' => '',
+                ),
+                array(
+                    'key' => 'field_5ae049f671c21',
+                    'label' => 'Published By: Year',
+                    'name' => 'gfbp_published_by_year',
+                    'type' => 'number',
+                    'instructions' => '',
+                    'required' => 0,
+                    'conditional_logic' => 0,
+                    'wrapper' => array(
+                        'width' => '',
+                        'class' => '',
+                        'id' => '',
+                    ),
+                    'default_value' => '',
+                    'placeholder' => '',
+                    'prepend' => '',
+                    'append' => '',
+                    'min' => '',
+                    'max' => '',
+                    'step' => '',
+                ),
+            ),
+        ),
+    ),
+    'location' => array(
+        array(
+            array(
+                'param' => 'post_type',
+                'operator' => '==',
+                'value' => 'book',
+            ),
+        ),
+    ),
+    'menu_order' => 91,
+    'position' => 'normal',
+    'style' => 'default',
+    'label_placement' => 'top',
+    'instruction_placement' => 'label',
+    'hide_on_screen' => '',
+    'active' => 1,
+    'description' => '',
+));

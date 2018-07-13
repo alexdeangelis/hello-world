@@ -59,8 +59,10 @@ Book Information Fields
 
 -- Featured Book? - gfbp_featured_book - Checkbox
 
+-- Coming Soon? - gfbp_coming_soon - Checkbox
+---- Release Date - gfbp_release_date - Date/Time Picker
 
-
+You are able to turn off any of these fields on the Book Field Settings page.
 
 == Installation ==
 
