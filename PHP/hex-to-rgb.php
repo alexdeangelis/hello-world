@@ -14,5 +14,5 @@ function hex2rgb( $colour ) {
     $r = hexdec( $r );
     $g = hexdec( $g );
     $b = hexdec( $b );
-    $array = array( 'red' => $r, 'green' => $g, 'blue' => $b );=
+    $array = array( 'red' => $r, 'green' => $g, 'blue' => $b );
 }
