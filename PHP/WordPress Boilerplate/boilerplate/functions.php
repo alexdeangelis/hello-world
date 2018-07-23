@@ -23,3 +23,11 @@ if( function_exists('acf_add_options_page') ) {
 //Enquing Bootstrap JS in the footer & loading jQuery as a dependency
 //For more info, go here: https://digwp.com/2009/06/including-jquery-in-wordpress-the-right-way/
 wp_enqueue_script('bootstrap-js', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', array('jquery'), null, true);
+
+
+
+function my_acf_init() {
+    acf_update_setting('show_admin', false);
+}
+
+add_action('acf/init', 'my_acf_init');
