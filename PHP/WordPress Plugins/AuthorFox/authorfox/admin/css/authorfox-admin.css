@@ -1,0 +1,33 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+
+.authorfox-field-reference ul {
+    list-style: disc;
+    padding-left:40px;
+}
+.authorfox-field-reference ul ul {
+    list-style-type: circle;
+}
+
+.authorfox-field-reference ul ul ul {
+    list-style: disc;
+}
+
+.authorfox-field-reference ul ul ul ul {
+    list-style-type: circle;
+}
+
+.authorfox-field-reference li {
+    margin-bottom:0px;
+    margin-top:6px;
+}
+
+.authorfox-field-reference h2 {
+    padding-top:25px;
+}
+
+.authorfox-field-reference h2:first-of-type {
+    padding-top:0px;
+}

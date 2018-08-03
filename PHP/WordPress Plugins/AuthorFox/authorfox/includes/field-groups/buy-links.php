@@ -1,0 +1,108 @@
+<?php
+
+acf_add_local_field_group(array(
+    'key' => 'group_5ae04962b7863',
+    'title' => 'Buy Links Fields',
+    'fields' => array(
+
+        array(
+            'key' => 'field_5ae04a1671c22',
+            'label' => 'Buy Links',
+            'name' => 'authorfox_buy_links',
+            'type' => 'repeater',
+            'instructions' => '',
+            'required' => 0,
+            'conditional_logic' => 0,
+            'wrapper' => array(
+                'width' => '',
+                'class' => '',
+                'id' => '',
+            ),
+            'collapsed' => '',
+            'min' => 0,
+            'max' => 0,
+            'layout' => 'table',
+            'button_label' => '',
+            'sub_fields' => array(
+                array(
+                    'key' => 'field_5ae04a2f71c23',
+                    'label' => 'Buy Links: Retailer',
+                    'name' => 'authorfox_buy_links_retailer',
+                    'type' => 'text',
+                    'instructions' => '',
+                    'required' => 0,
+                    'conditional_logic' => 0,
+                    'wrapper' => array(
+                        'width' => '',
+                        'class' => '',
+                        'id' => '',
+                    ),
+                    'default_value' => '',
+                    'placeholder' => '',
+                    'prepend' => '',
+                    'append' => '',
+                    'maxlength' => '',
+                ),
+                array(
+                    'key' => 'field_5ae04a3d71c24',
+                    'label' => 'Buy Links: URL',
+                    'name' => 'authorfox_buy_links_url',
+                    'type' => 'url',
+                    'instructions' => '',
+                    'required' => 0,
+                    'conditional_logic' => 0,
+                    'wrapper' => array(
+                        'width' => '',
+                        'class' => '',
+                        'id' => '',
+                    ),
+                    'default_value' => '',
+                    'placeholder' => '',
+                ),
+                array(
+                    'key' => 'field_5ae04a4f71c25',
+                    'label' => 'Buy Links: Logo',
+                    'name' => 'authorfox_buy_links_logo',
+                    'type' => 'image',
+                    'instructions' => '',
+                    'required' => 0,
+                    'conditional_logic' => 0,
+                    'wrapper' => array(
+                        'width' => '',
+                        'class' => '',
+                        'id' => '',
+                    ),
+                    'return_format' => 'array',
+                    'preview_size' => 'full',
+                    'library' => 'all',
+                    'min_width' => '',
+                    'min_height' => '',
+                    'min_size' => '',
+                    'max_width' => '',
+                    'max_height' => '',
+                    'max_size' => '',
+                    'mime_types' => '',
+                ),
+            ),
+        ),
+    ),
+    'location' => array(
+        array(
+            array(
+                'param' => 'post_type',
+                'operator' => '==',
+                'value' => 'book',
+            ),
+        ),
+    ),
+    'menu_order' => 90,
+    'position' => 'normal',
+    'style' => 'default',
+    'label_placement' => 'top',
+    'instruction_placement' => 'label',
+    'hide_on_screen' => '',
+    'active' => 1,
+    'description' => '',
+));
+
+

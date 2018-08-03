@@ -40,8 +40,8 @@ function books_settings_page() {
     );
     
     //If Advanced Buy Links extension is not installed, do this...
-    if ( !is_plugin_active( 'gf-books-advanced-buy-links/gf-books-advanced-buy-links.php' ) ) {
-        
+    if ( is_plugin_active( 'gf-books-advanced-buy-links/gf-books-advanced-buy-links.php' ) ) {
+    } else {
         //Buy Links
 
         add_settings_field(
@@ -56,7 +56,6 @@ function books_settings_page() {
             "section",
             "buy_links"
         );
-        
     }
     
     //Coming Soon
@@ -214,16 +213,21 @@ function acknowledgements_display()
 
 
 
-//If Advanced Buy Links extension is not installed, do this...
-if ( !is_plugin_active( 'gf-books-advanced-buy-links/gf-books-advanced-buy-links.php' ) ) {
 
-    function buy_links_display() {
+function buy_links_display() {
+    //If Advanced Buy Links extension is not installed, do this...
+    if ( is_plugin_active( 'gf-books-advanced-buy-links/gf-books-advanced-buy-links.php' ) ) {
+    } else {
 
-       ?>
-            <!-- Here we are comparing stored value with 1. Stored value is 1 if user checks the checkbox otherwise empty string. -->
-            <input type="checkbox" name="buy_links" value="1" <?php checked(1, get_option('buy_links'), true); ?> /> 
 
-       <?php
+   ?>
+        <!-- Here we are comparing stored value with 1. Stored value is 1 if user checks the checkbox otherwise empty string. -->
+        <input type="checkbox" name="buy_links" value="1" <?php checked(1, get_option('buy_links'), true); ?> /> 
+
+   <?php
+
+
+
     }
 }
 

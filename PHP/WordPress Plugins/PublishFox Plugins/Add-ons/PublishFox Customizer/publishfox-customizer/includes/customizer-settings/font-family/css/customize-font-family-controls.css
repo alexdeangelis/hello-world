@@ -1,0 +1,30 @@
+.customize-control-font-family .ui-button {
+    margin:        0;
+    border-radius: 0;
+    border:        none;
+    background:    transparent;
+}
+
+.customize-control-font-family .ui-button-text { padding: 0; }
+
+.customize-control-font-family img {
+    box-sizing: border-box;
+    height:     auto;
+    border:4px solid #ddd;
+    width:100%;
+    margin-top:10px;
+}
+
+.customize-control-font-family img:hover,
+.customize-control-font-family img:focus {
+    border-color: #262328;
+}
+
+.customize-control-font-family .ui-state-active img {
+    border-color: #00a0d2;
+}
+
+
+.buttonset input {
+    display:none
+}
