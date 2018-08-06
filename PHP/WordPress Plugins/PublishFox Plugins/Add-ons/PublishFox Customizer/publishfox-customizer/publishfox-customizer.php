@@ -51,6 +51,10 @@ function activate_publishfox_customizer() {
 require_once plugin_dir_path( __FILE__ ) . 'includes/customizer-settings.php';
 
 
+//Turn on support for a logo in the customizer
+add_theme_support( 'custom-logo' );
+
+
 /*$role_object = get_role( 'editor' );
 $role_object->add_cap( 'manage_options' );
 $role_object->add_cap('customize');*/

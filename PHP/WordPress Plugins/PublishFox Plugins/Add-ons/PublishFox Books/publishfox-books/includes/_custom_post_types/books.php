@@ -32,7 +32,7 @@ function register_book_post_type() {
         'hierarchical'       => false,
         'menu_position'      => null,
         'menu_icon'          => 'dashicons-book-alt',
-        'supports'           => array( 'title', 'editor' )
+        'supports'           => array( 'title', 'thumbnail' )
     );
 
     register_post_type( 'books', $args );

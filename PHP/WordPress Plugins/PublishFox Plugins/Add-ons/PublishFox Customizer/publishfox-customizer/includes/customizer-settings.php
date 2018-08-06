@@ -1,5 +1,12 @@
 <?php
 
+////o2 STUFF////
+
+define( 'O2_DIRECTORY', plugin_dir_path( __FILE__ ) . 'customizer-settings/o2/' );
+define( 'O2_DIRECTORY_URI', plugin_dir_path( __FILE__ ) . 'customizer-settings/o2/' );
+
+//require plugin_dir_path( __FILE__ ) . 'customizer-settings/o2/controls/icon-picker/icon-picker-control.php';
+
 
 
 ////////////// REGISTER CUSTOMIZER SETTINGS HERE //////////////
@@ -18,7 +25,10 @@ require_once plugin_dir_path( __FILE__ ) . 'customizer-settings/colour-palette/r
 //Link to the font-family register file
 require_once plugin_dir_path( __FILE__ ) . 'customizer-settings/font-family/register/font-family-register.php';
 
+//Link to the social icons register file
+//require_once plugin_dir_path( __FILE__ ) . 'customizer-settings/social-icons/register/social-icons-register.php';
 
+require_once plugin_dir_path( __FILE__ ) . 'customizer-settings/social-icons-two/register/social-icons-two-register.php';
 
 ////////////// REGISTER CUSTOMIZER CSS HERE //////////////
 
@@ -42,19 +52,6 @@ require_once plugin_dir_path( __FILE__ ) . 'customizer-settings/font-family/css/
 
 
 
-/**
- * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
- */
-/*function understrap_customize_preview_js() {
-	wp_enqueue_script( 
-        'understrap_customizer', 
-        plugin_dir_path( __FILE__ ) . '/js/customizer.js', 
-        array( 
-            'customize-preview' 
-        ), 
-        '20130508', 
-        true 
-    );
-}
-add_action( 'customize_preview_init', 'understrap_customize_preview_js' );*/
+
+
 

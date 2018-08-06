@@ -105,26 +105,40 @@ function publishfox_customizer_css_colour_palette() {
         body {
             background-color:<?php echo $primary_color; ?>;
         }
+        
         p,
-        a,
-        h1,
-        h2,
-        h3,
-        h4,
         a,
         ul,
         li,
         label,
         span,
-        footer,
+        footer {
+            color:<?php echo $black; ?>;
+        }
+        
+        
+        
+        h1,
+        h2,
+        h3,
+        h4 {
+            color:<?php echo $primary_color; ?>;
+        }
+        
         .navbar-default .navbar-nav>li>a,
         .fa-inverse
         {
             color:<?php echo $white; ?>;
         }
+        
+        header,
+        footer {
+            background-color:<?php echo $secondary_color; ?>;
+        }
+        
         .navbar-default {
-            background-color:<?php echo $primary_color; ?>;
-            border-color: <?php echo $primary_color; ?>;
+            background-color:transparent;
+            border:none;
         }
         .input-group-btn .btn-primary {
             background-color:<?php echo $tertiary_color; ?>;

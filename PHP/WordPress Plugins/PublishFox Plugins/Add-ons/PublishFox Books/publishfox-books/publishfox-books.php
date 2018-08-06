@@ -51,11 +51,35 @@ function activate_publishfox_books() {
 //Register the 'Books' custom post type
 require_once plugin_dir_path( __FILE__ ) . 'includes/_custom_post_types/books.php';
 
+//Creates the description fields within the books custom post type
+require_once plugin_dir_path( __FILE__ ) . 'includes/_acf_fields/books/book-description.php';
+
+//Creates the purchase links fields within the books custom post type
+require_once plugin_dir_path( __FILE__ ) . 'includes/_acf_fields/books/purchase-links.php';
+
+//Creates the video fields within the books custom post type
+require_once plugin_dir_path( __FILE__ ) . 'includes/_acf_fields/books/video.php';
+
 //Creates the extracts fields within the books custom post type
 require_once plugin_dir_path( __FILE__ ) . 'includes/_acf_fields/books/extracts.php';
 
-//Creates the series relationship fields within the books custom post type
-require_once plugin_dir_path( __FILE__ ) . 'includes/_acf_fields/books/series-relationship.php';
+
+
+
+//This finds whihc plugins are currently active
+include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+
+//If the PublishFox Series plugins is active, do this...
+
+if (
+    is_plugin_active( 'publishfox-series/publishfox-series.php' ) ) {
+
+    //Creates the series relationship fields within the books custom post type
+    require_once plugin_dir_path( __FILE__ ) . 'includes/_acf_fields/books/series-relationship.php';
+    
+} else {
+    
+}
 
 /**
  * The code that runs during plugin deactivation.
