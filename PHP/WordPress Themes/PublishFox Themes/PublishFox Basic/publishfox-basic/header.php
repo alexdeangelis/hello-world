@@ -13,8 +13,8 @@ $themeURL = get_template_directory_uri();
         <title><?php echo get_bloginfo( 'name' );?> - <?php echo get_bloginfo( 'description' ); ?></title>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.0/assets/owl.carousel.min.css" rel="stylesheet">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.0/assets/owl.theme.default.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" rel="stylesheet">
         
         <!--Favicons-->
         <!--
@@ -32,42 +32,58 @@ $themeURL = get_template_directory_uri();
     
     <body <?php body_class(); ?>>
         
+        <div class="wrapper">
+        
         <!--Here's a standard nav, modified from the Bootstrap example-->
         
-        <div class="container">
+        <header class="block__header">
+            
+            <div class="container">
+                
+                <div class="header__container">
 
-                <!-- Static navbar -->
-                <!--<nav class="navbar navbar-default">
+                    <!-- Static navbar -->
+                    <nav class="navbar navbar-default header__navbar">
 
+                        <?php
+
+                        if ( function_exists( 'the_custom_logo' ) ) {
+
+                            $custom_logo_id = get_theme_mod( 'custom_logo' );
+                            $image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+
+                            ?>
 
                         <div class="navbar-header">
-                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar top-bar"></span>
-                                <span class="icon-bar middle-bar"></span>
-                                <span class="icon-bar bottom-bar"></span>
-                            </button>
-                            
-                            
-                            
-                            
-                            <div class="logo">
-                                <a href="/">-->
-                                                                        
-                                    <!--<img src="https://dcnetworks.ie/wp/wp-content/uploads/2017/11/placeholder-logo-2.png"/>-->
-                                                                        
-                                <!--</a>
+
+                            <div class="header__navbar__logo">
+                                <a href="/">
+                                    <img class="header__logo__image" src="<?php echo $image[0]; ?>"/>
+                                </a>
                             </div>
+
                         </div>
 
-                        <div id="navbar" class="navbar-collapse collapse">
+                        <?php
 
-                            <div class="menu-main-menu-container">
-                                <?php wp_nav_menu( array( 'theme_location' => 'main-menu' ) ); ?>
-                            </div>
+                        }
+
+                        ?>
+
+                        <div class="header__navbar__social-icons">
+                            <?php
+                                if ( function_exists( 'publishfox_show_social_icons' ) ) {
+                                    publishfox_show_social_icons();
+                                }
+                            ?>
                         </div>
-                </nav>-->
 
+                    </nav>
 
+                </div>
 
             </div> <!-- /container -->
+        
+        </header>
+        
+        
